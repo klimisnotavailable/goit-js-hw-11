@@ -12,6 +12,11 @@ const orientation = "horizontal";
 const safesearch = true;
 const BASE_URL = "https://pixabay.com/api/"
 
+const searchParams = new URLSearchParams({
+    orientation: "horizontal",
+    safesearch: true,
+    image_type: "photo",
+})
 
 export const checkForm = function checkForm(formInput) {
     if (formInput.value.trim() == "") {
@@ -22,6 +27,6 @@ export const checkForm = function checkForm(formInput) {
 }
 
 export function createURL() {
-    return `${BASE_URL}?key=${KEY}&q=${formInput.value}&image_type=${image_type}`
+    return `${BASE_URL}?key=${KEY}&q=${formInput.value}&${searchParams}`
 }
 
