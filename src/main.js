@@ -43,7 +43,7 @@ form.addEventListener("submit", (event) => {
     .then(data => {
 
         if (data.hits.length == 0) {
-            throw new Error("")
+            throw new Error("No such images!")
         }
 
         gallery.insertAdjacentHTML("beforeend", generateMarkup(data))
@@ -57,7 +57,9 @@ form.addEventListener("submit", (event) => {
             message:"Sorry, there are no images matching your search query. Please try again!",
         })
     })
-    .finally(loader.classList.add("visually-hidden"))
+        .finally(() => {
+        loader.classList.add("visually-hidden")
+    })
     
 })
 
